@@ -1,7 +1,15 @@
-ORG 0x7c00 ; endereço de carregamento
+ORG 0 ; endereço de carregamento
 BITS 16 ; modo de 16 bits
 
 start:
+  cli ; desabilita interrupções
+  mov ax, 0x07C0 ; carrega o endereço de segmento
+  mov ds, ax ; carrega o endereço de segmento em DS
+  mov es, ax ; carrega o endereço de segmento em ES
+  mov ax, 0x00 ; carrega o endereço de segmento 0x
+  mov ss, ax ; carrega o endereço de segmento em SS
+  mov sp, 0x7C00 ; carrega o endereço de pilha
+  sti ; habilita interrupções
   mov si, message ; carrega o endereço da mensagem em SI
   call print ; chama a função print
   jmp $ ; entra em loop infinito
