@@ -26,8 +26,3 @@ message: db ' ##### Bem-vindo ao MEU BOOT LOADER #####', 0 ; define a mensagem c
 
 times 510-($ - $$) db 0 ; preenche o restante do setor com zeros
 dw 0xAA55 ; assinatura de boot
-
-
-; Para compilar e executar o código, você pode usar o NASM e o QEMU:
-; nasm -f bin boot.asm -o boot.bin
-; qemu-system-x86_64 -hda ./boot.bin
