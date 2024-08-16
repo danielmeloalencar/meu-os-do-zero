@@ -8,5 +8,9 @@
 
 `qemu-system-x86_64 -hda ./boot.bin `
 
+Rodando no Qemu
 ![Bootload Image](./assets/print.png)
+
+Rodando no PC Real Ryzen 5
+![PC Real](./assets/pcreal.jpg)
 
