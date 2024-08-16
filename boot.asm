@@ -1,6 +1,8 @@
 ORG 0 ; endereço de carregamento
 BITS 16 ; modo de 16 bits
 
+jmp 0x7c0:start ; pula para o código de inicialização
+
 start:
   cli ; desabilita interrupções
   mov ax, 0x07C0 ; carrega o endereço de segmento
