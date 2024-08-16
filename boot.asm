@@ -1,9 +1,15 @@
 ORG 0 ; endereço de carregamento
 BITS 16 ; modo de 16 bits
+_start:
+  jmp short start
+  nop
 
-jmp 0x7c0:start ; pula para o código de inicialização
+times 33 db 0 ; preenche o restante do setor com zeros
 
 start:
+  jmp 0x7c0:step2 ; pula para o endereço 0x7C0:step2
+
+step2:
   cli ; desabilita interrupções
   mov ax, 0x07C0 ; carrega o endereço de segmento
   mov ds, ax ; carrega o endereço de segmento em DS
@@ -12,6 +18,7 @@ start:
   mov ss, ax ; carrega o endereço de segmento em SS
   mov sp, 0x7C00 ; carrega o endereço de pilha
   sti ; habilita interrupções
+
   mov si, message ; carrega o endereço da mensagem em SI
   call print ; chama a função print
   jmp $ ; entra em loop infinito
