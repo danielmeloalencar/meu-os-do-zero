@@ -1,4 +1,4 @@
-# Meu Primeiro Sistema Operacional do Zero
+# Meu Sistema Operacional do Zero
 
 ## O bootloader
 * Para compilar, use o nasm
