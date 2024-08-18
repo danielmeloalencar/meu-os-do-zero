@@ -20,9 +20,16 @@ step2:
   sti ; habilita interrupções
 
   mov si, message ; carrega o endereço da mensagem em SI
+  call clear_screen ; chama a função clear_screen
   call print ; chama a função print
   jmp $ ; entra em loop infinito
 
+clear_screen:
+  mov ah, 0 ; função de limpeza de tela
+  mov al, 3 ; modo de limpeza de tela
+  int 0x10 ; chamada de interrupção de BIOS
+  ret ; retorna da função
+  
 print:
   mov bx, 0 ; inicializa BX com 0
 .loop:
